@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #0A3D33;
+  --color-sage: #A8B5A2;
+  --color-cream: #F8F1E3;
+  --color-teal: #4ECDC4;
+  --color-zen-dark: #0F1A17;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --shadow-zen: 0 20px 50px -12px rgba(10, 61, 51, 0.5);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono&display=swap');
+
+@layer base {
+  body {
+    @apply bg-zen-dark text-cream font-sans selection:bg-teal selection:text-forest antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-forest/20 backdrop-blur-md border border-sage/10 shadow-zen;
+  }
+  
+  .glass-card {
+    @apply bg-forest/30 backdrop-blur-lg border border-sage/10 rounded-3xl p-8 hover:border-sage/20 transition-all duration-500 shadow-xl;
+  }
+
+  .nav-link {
+    @apply text-sm tracking-wide transition-all duration-300;
+  }
+}
+
+.breathing-circle {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.6); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
